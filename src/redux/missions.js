@@ -7,7 +7,14 @@ export const fetchingMissionspi = createAsyncThunk('fetching from missions api',
   const fetchedMissions = await axios.get('https://api.spacexdata.com/v3/missions').catch((err) => {
     console.log('error', err);
   });
-  return fetchedMissions.data;
+  const missionData = fetchedMissions.data;
+  const fetchedEachMission = missionData.map((mission) => ({
+    id: mission.mission_id.id,
+    mission_name: mission.mission_name,
+    description: mission.description,
+    reserved: false,
+  }));
+  return fetchedEachMission;
 });
 const missionsSlice = createSlice({
   name: 'missions',
