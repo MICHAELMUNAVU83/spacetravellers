@@ -24,9 +24,18 @@ export const fetchingRocketsApi = createAsyncThunk(
 const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
+  reducers: {
+    changeRocketReservation: (state, action) => state.map((rocket) => {
+      if (rocket.id === action.payload) {
+        return { ...rocket, reserved: !rocket.reserved };
+      }
+      return rocket;
+    }),
+
+  },
   extraReducers: {
     [fetchingRocketsApi.fulfilled]: (state, action) => action.payload,
   },
 });
-
+export const { changeRocketReservation } = rocketSlice.actions;
 export default rocketSlice.reducer;

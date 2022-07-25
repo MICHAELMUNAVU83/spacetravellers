@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchingRocketsApi } from '../redux/rocket';
+import { fetchingRocketsApi, changeRocketReservation } from '../redux/rocket';
 
 function Rocket() {
   const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchingRocketsApi());
+    if (!rockets.length) dispatch(fetchingRocketsApi());
   }, [dispatch]);
+  const handleRocketResevation = (e) => {
+    dispatch(changeRocketReservation(Number(e.target.id)));
+  };
   const render = rockets.map((rocket) => (
     <div key={rocket.id}>
       <p>
@@ -31,12 +34,12 @@ function Rocket() {
       </p>
       <img src={rocket.flickr_image} alt="flick" />
       {!rocket.reserved && (
-        <button id={rocket.id} type="button">
+        <button id={rocket.id} type="button" onClick={handleRocketResevation}>
           RESERVE
         </button>
       )}
       {rocket.reserved && (
-        <button id={rocket.id} type="button">
+        <button id={rocket.id} type="button" onClick={handleRocketResevation}>
           CANCEL
         </button>
       )}
