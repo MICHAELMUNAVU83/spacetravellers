@@ -10,7 +10,15 @@ export const fetchingDragonsApi = createAsyncThunk(
       .catch((err) => {
         console.log('error', err);
       });
-    return fetchedDragons.data;
+    const dragonsData = fetchedDragons.data;
+    const fetchedEachDragons = dragonsData.map((dragon) => ({
+      id: dragon.id,
+      dragon_name: dragon.dragon_name,
+      description: dragon.description,
+      flickr_image: dragon.flickr_images[0],
+      reserved: false,
+    }));
+    return fetchedEachDragons;
   },
 );
 const dragonSlice = createSlice({
