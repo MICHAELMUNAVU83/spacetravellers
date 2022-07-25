@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
-import { fetchingMissionspi } from '../redux/missions';
+import { fetchingMissionspi, joinMission } from '../redux/missions';
 
 function Mission() {
   const missions = useSelector((state) => state.missions);
@@ -8,7 +8,9 @@ function Mission() {
   useEffect(() => {
     if (!missions.length) dispatch(fetchingMissionspi());
   }, [dispatch]);
-
+  const joinMissionEvent = (e) => {
+    dispatch(joinMission((e.target.id)));
+  };
   const ma = missions.map((mission) => (
     <div key={mission.id}>
       <p>
@@ -23,10 +25,10 @@ function Mission() {
         {' '}
         {mission.description}
       </p>
-      {!mission.canceled && (<button type="button"> NOT A MEMBER</button>) }
-      {mission.canceled && (<button type="button"> ACTIVE MEMBER</button>) }
-      {!mission.canceled && (<button id={mission.id} type="button">JOIN MISSION</button>) }
-      {mission.canceled && (<button id={mission.id} type="button">LEAVE MISSION</button>) }
+      {!mission.join && (<button type="button"> NOT A MEMBER</button>) }
+      {mission.join && (<button type="button"> ACTIVE MEMBER</button>) }
+      {!mission.join && (<button id={mission.id} type="button" onClick={joinMissionEvent}>JOIN MISSION</button>) }
+      {mission.join && (<button id={mission.id} type="button" onClick={joinMissionEvent}>LEAVE MISSION</button>) }
     </div>
   ));
   return (
