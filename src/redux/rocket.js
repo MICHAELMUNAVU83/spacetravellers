@@ -16,7 +16,9 @@ export const fetchingRocketsApi = createAsyncThunk(
 const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
-  extraReducers: {},
+  extraReducers: {
+    [fetchingRocketsApi.fulfilled]: (state, action) => action.payload,
+  },
 });
 
 export default rocketSlice.reducer;
