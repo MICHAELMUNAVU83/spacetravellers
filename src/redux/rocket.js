@@ -10,7 +10,15 @@ export const fetchingRocketsApi = createAsyncThunk(
       .catch((err) => {
         console.log('error', err);
       });
-    return fetchedRockets.data;
+    const rocketsData = fetchedRockets.data;
+    const fetchedEachRocket = rocketsData.map((rocket) => ({
+      id: rocket.id,
+      rocket_name: rocket.rocket_name,
+      description: rocket.description,
+      flickr_image: rocket.flickr_images[0],
+      reserved: false,
+    }));
+    return fetchedEachRocket;
   },
 );
 const rocketSlice = createSlice({
