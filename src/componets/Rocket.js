@@ -1,8 +1,51 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchingRocketsApi } from '../redux/rocket';
 
 function Rocket() {
+  const rockets = useSelector((state) => state.rockets);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchingRocketsApi());
+  }, [dispatch]);
+  const render = rockets.map((rocket) => (
+    <div key={rocket.id}>
+      <p>
+        {' '}
+        {rocket.id}
+      </p>
+      <p>
+        {' '}
+        {rocket.rocket_name}
+      </p>
+      <span>
+        {rocket.reserved && (
+          <button type="button">
+            Reserved
+          </button>
+        )}
+      </span>
+      <p>
+        {' '}
+        {rocket.description}
+      </p>
+      <img src={rocket.flickr_image} alt="flick" />
+      {!rocket.reserved && (
+        <button id={rocket.id} type="button">
+          RESERVE
+        </button>
+      )}
+      {rocket.reserved && (
+        <button id={rocket.id} type="button">
+          CANCEL
+        </button>
+      )}
+    </div>
+  ));
   return (
-    <div>Rocket</div>
+    <div>
+      {render}
+    </div>
   );
 }
 
