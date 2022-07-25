@@ -7,6 +7,7 @@ function Navbar() {
       <nav>
         <Link to="/">Rockets</Link>
         <Link to="/missions">Missions</Link>
+        <Link to="/dragons">Dragons</Link>
         <Link to="/profile">Profile</Link>
       </nav>
 
