@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/spacetravellers/static/css/main.7860297d.css",
+    "main.js": "/spacetravellers/static/js/main.632d6546.js",
+    "static/js/787.3d440b01.chunk.js": "/spacetravellers/static/js/787.3d440b01.chunk.js",
+    "static/media/planet.png": "/spacetravellers/static/media/planet.3f6fb2742f28651730c0.png",
+    "index.html": "/spacetravellers/index.html",
+    "main.7860297d.css.map": "/spacetravellers/static/css/main.7860297d.css.map",
+    "main.632d6546.js.map": "/spacetravellers/static/js/main.632d6546.js.map",
+    "787.3d440b01.chunk.js.map": "/spacetravellers/static/js/787.3d440b01.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7860297d.css",
+    "static/js/main.632d6546.js"
+  ]
+}
