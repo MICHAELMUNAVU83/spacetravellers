@@ -12,7 +12,7 @@ function Mission() {
     dispatch(joinMission(e.target.id));
   };
   const ma = missions.map((mission) => (
-    <tbody key={mission.id}>
+    <tbody key={mission.id} className="t-body">
       <tr>
         <th scope="row" className="description">
           {' '}
