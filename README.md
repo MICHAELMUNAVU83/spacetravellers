@@ -42,10 +42,6 @@ To get a local copy up and running  use gitclone or download the ZIP folder
 Run npm Start to display the project on your browser
 
 
-## 📝 License
-
-This project is [MIT](.MichaelMunavu/Capstoneproject/MIT.md) licensed.
-
 
 ## Getting Started
 To get a local copy up and running  use gitclone or download the ZIP folder
@@ -54,7 +50,6 @@ Run npm Start to display the project on your browser
 
 ## 📝 License
 
-This project is [MIT]((https://github.com/microverseinc/readme-template/blob/master/MIT.md)licensed.
-
+This project is [MIT]((https://github.com/microverseinc/readme-template/blob/master/MIT.md) licensed.
 
 
