@@ -13,7 +13,7 @@ export const fetchingDragonsApi = createAsyncThunk(
     const dragonsData = fetchedDragons.data;
     const fetchedEachDragons = dragonsData.map((dragon) => ({
       id: dragon.id,
-      dragon_name: dragon.dragon_name,
+      dragon_name: dragon.name,
       description: dragon.description,
       flickr_image: dragon.flickr_images[0],
       reserved: false,
@@ -24,9 +24,19 @@ export const fetchingDragonsApi = createAsyncThunk(
 const dragonSlice = createSlice({
   name: 'dragons',
   initialState,
+  reducers: {
+    changeDragonReservation: (state, action) => state.map((dragon) => {
+      if (dragon.id === action.payload) {
+        return { ...dragon, reserved: !dragon.reserved };
+      }
+      return dragon;
+    }),
+
+  },
   extraReducers: {
     [fetchingDragonsApi.fulfilled]: (state, action) => action.payload,
   },
 });
+export const { changeDragonReservation } = dragonSlice.actions;
 
 export default dragonSlice.reducer;
