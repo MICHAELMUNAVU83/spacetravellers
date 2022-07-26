@@ -73,3 +73,12 @@ img {
 .description {
   text-align: start;
 }
+
+#member {
+  width: 100%;
+  font-size: 8px;
+}
+
+.t-body:nth-child(even) {
+  background-color: whitesmoke;
+}
