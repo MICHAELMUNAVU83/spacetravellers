@@ -1,14 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   return (
     <div>
       <nav>
-        <Link to="/">Rockets</Link>
-        <Link to="/dragons">Dragons</Link>
-        <Link to="/missions">Missions</Link>
-        <Link to="/profile">Profile</Link>
+        <NavLink
+          to="/"
+          style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}
+        >
+          Rockets
+        </NavLink>
+        <NavLink
+          to="/dragons"
+          style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}
+        >
+          Dragons
+        </NavLink>
+        <NavLink
+          to="/missions"
+          style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}
+        >
+          Missions
+        </NavLink>
+        <NavLink
+          to="/profile"
+          style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}
+        >
+          Profile
+        </NavLink>
       </nav>
 
     </div>
