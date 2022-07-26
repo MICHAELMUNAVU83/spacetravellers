@@ -7,9 +7,7 @@ export const fetchingDragonsApi = createAsyncThunk(
   async () => {
     const fetchedDragons = await axios
       .get('https://api.spacexdata.com/v3/dragons')
-      .catch((err) => {
-        console.log('error', err);
-      });
+      .catch((err) => err);
     const dragonsData = fetchedDragons.data;
     const fetchedEachDragons = dragonsData.map((dragon) => ({
       id: dragon.id,
