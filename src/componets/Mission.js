@@ -9,30 +9,52 @@ function Mission() {
     if (!missions.length) dispatch(fetchingMissionspi());
   }, [dispatch]);
   const joinMissionEvent = (e) => {
-    dispatch(joinMission((e.target.id)));
+    dispatch(joinMission(e.target.id));
   };
   const ma = missions.map((mission) => (
-    <div key={mission.id}>
-      <p>
-        {' '}
-        {mission.id}
-      </p>
-      <p>
-        {' '}
-        {mission.mission_name}
-      </p>
-      <p>
-        {' '}
-        {mission.description}
-      </p>
-      {!mission.join && (<button type="button"> NOT A MEMBER</button>) }
-      {mission.join && (<button type="button"> ACTIVE MEMBER</button>) }
-      {!mission.join && (<button id={mission.id} type="button" onClick={joinMissionEvent}>JOIN MISSION</button>) }
-      {mission.join && (<button id={mission.id} type="button" onClick={joinMissionEvent}>LEAVE MISSION</button>) }
-    </div>
+    <tbody key={mission.id}>
+      <tr>
+        <th scope="row" className="description">
+          {' '}
+          {mission.mission_name}
+        </th>
+        <td className="description">
+          {' '}
+          {mission.description}
+        </td>
+        <td>
+          {!mission.join && <button className="btn btn-secondary btn-sm" id="member" type="button"> NOT A MEMBER</button>}
+          {mission.join && <button className="btn btn-primary btn-sm" id="member" type="button"> ACTIVE MEMBER</button>}
+        </td>
+        <td>
+          {!mission.join && (
+          <button id={mission.id} type="button" className="btn btn-outline-secondary" onClick={joinMissionEvent}>
+            JOIN MISSION
+          </button>
+          )}
+          {mission.join && (
+          <button id={mission.id} type="button" className="btn btn-outline-danger" onClick={joinMissionEvent}>
+            LEAVE MISSION
+          </button>
+          )}
+        </td>
+      </tr>
+    </tbody>
   ));
   return (
-    <div>{ma}</div>
+    <div>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Mission</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        {ma}
+      </table>
+    </div>
   );
 }
 
