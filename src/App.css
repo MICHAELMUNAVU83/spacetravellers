@@ -40,14 +40,27 @@
 }
 
 nav {
-  background-color: blue;
+  height: 50px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(182, 174, 174);
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  margin-right: 20px;
+}
+
+.logo-name {
+  display: flex;
+  flex-direction: row;
 }
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: blue;
+  margin-right: 20px;
 }
 
 .each-rocket {
