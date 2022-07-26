@@ -7,9 +7,7 @@ export const fetchingRocketsApi = createAsyncThunk(
   async () => {
     const fetchedRockets = await axios
       .get('https://api.spacexdata.com/v3/rockets')
-      .catch((err) => {
-        console.log('error', err);
-      });
+      .catch((err) => err);
     const rocketsData = fetchedRockets.data;
     const fetchedEachRocket = rocketsData.map((rocket) => ({
       id: rocket.id,

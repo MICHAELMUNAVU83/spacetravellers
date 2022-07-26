@@ -10,7 +10,6 @@ function Dragon() {
   }, [dispatch]);
   const changeReservation = (e) => {
     dispatch(changeDragonReservation(e.target.id));
-    console.log(e.target.id);
   };
   const render = dragons.map((dragon) => (
     <div className="each-rocket" key={dragon.id}>
