@@ -63,6 +63,12 @@ img {
   margin-left: 5px;
 }
 
+.profiles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .rocket-details {
   display: flex;
   flex-direction: column;
