@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchingDragonsApi } from '../redux/dragons';
+import { fetchingDragonsApi, changeDragonReservation } from '../redux/dragons';
 
 function Dragon() {
   const dragons = useSelector((state) => state.dragons);
@@ -8,6 +8,9 @@ function Dragon() {
   useEffect(() => {
     dispatch(fetchingDragonsApi());
   }, [dispatch]);
+  const changeReservation = (e) => {
+    dispatch(changeDragonReservation(e.target.id));
+  };
   const render = dragons.map((dragon) => (
     <div key={dragon.id}>
       <p>
@@ -31,12 +34,12 @@ function Dragon() {
       </p>
       <img src={dragon.flickr_image} alt="flick" />
       {!dragon.reserved && (
-        <button id={dragon.id} type="button">
+        <button id={dragon.id} type="button" onClick={changeReservation}>
           RESERVE
         </button>
       )}
       {dragon.reserved && (
-        <button id={dragon.id} type="button">
+        <button id={dragon.id} type="button" onClick={changeReservation}>
           CANCEL
         </button>
       )}
