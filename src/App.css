@@ -45,11 +45,40 @@ nav {
   justify-content: space-evenly;
 }
 
-a {
+nav a {
   text-decoration: none;
   color: white;
 }
 
+.each-rocket {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 img {
-  height: 200px;
+  height: 300px;
+  width: 300px;
+  margin-left: 5px;
+}
+
+.rocket-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5px;
+}
+
+.description {
+  text-align: start;
+}
+
+#member {
+  width: 100%;
+  font-size: 8px;
+}
+
+.t-body:nth-child(even) {
+  background-color: whitesmoke;
 }
