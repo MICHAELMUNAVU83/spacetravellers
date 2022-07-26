@@ -11,10 +11,20 @@ function Profile() {
       {' '}
     </div>
   ));
+  const dragons = useSelector((state) => state.dragons);
+  const reservedDragons = dragons.filter((dragon) => dragon.reserved);
+  const newDragons = reservedDragons.map((reservedDragons) => (
+    <div key={reservedDragons.id}>
+      {' '}
+      {reservedDragons.dragon_name}
+      {' '}
+    </div>
+  ));
   return (
     <div>
       <h2>
         {' '}
+        {newDragons}
         {newRockets}
       </h2>
     </div>
