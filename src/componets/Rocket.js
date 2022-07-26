@@ -12,37 +12,35 @@ function Rocket() {
     dispatch(changeRocketReservation(Number(e.target.id)));
   };
   const render = rockets.map((rocket) => (
-    <div key={rocket.id}>
-      <p>
-        {' '}
-        {rocket.id}
-      </p>
-      <p>
-        {' '}
-        {rocket.rocket_name}
-      </p>
-      <span>
-        {rocket.reserved && (
-          <button type="button">
+    <div className="each-rocket" key={rocket.id}>
+      <img src={rocket.flickr_image} alt="flick" />
+      <div className="rocket-details">
+        <h3>
+          {' '}
+          {rocket.rocket_name}
+        </h3>
+
+        <p className="description">
+          {rocket.reserved && (
+          <button type="button" className="btn btn-primary btn-sm">
             Reserved
           </button>
-        )}
-      </span>
-      <p>
-        {' '}
-        {rocket.description}
-      </p>
-      <img src={rocket.flickr_image} alt="flick" />
-      {!rocket.reserved && (
-        <button id={rocket.id} type="button" onClick={handleRocketResevation}>
+          )}
+          {' '}
+          {rocket.description}
+        </p>
+        {!rocket.reserved && (
+        <button id={rocket.id} className="btn btn-primary btn-lg" type="button" onClick={handleRocketResevation}>
           RESERVE
         </button>
-      )}
-      {rocket.reserved && (
-        <button id={rocket.id} type="button" onClick={handleRocketResevation}>
-          CANCEL
+        )}
+        {rocket.reserved && (
+        <button id={rocket.id} className="btn btn-outline-secondary" type="button" onClick={handleRocketResevation}>
+          CANCEL RESERVATION
         </button>
-      )}
+        )}
+
+      </div>
     </div>
   ));
   return (

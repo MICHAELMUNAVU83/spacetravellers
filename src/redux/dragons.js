@@ -13,7 +13,7 @@ export const fetchingDragonsApi = createAsyncThunk(
     const dragonsData = fetchedDragons.data;
     const fetchedEachDragons = dragonsData.map((dragon) => ({
       id: dragon.id,
-      dragon_name: dragon.dragon_name,
+      dragon_name: dragon.name,
       description: dragon.description,
       flickr_image: dragon.flickr_images[0],
       reserved: false,
